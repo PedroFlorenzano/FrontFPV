@@ -5,148 +5,103 @@
     android:id="@+id/botaoSair"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/corDeFundo"
     tools:context=".MainActivity2">
 
-    <RelativeLayout
-        android:layout_width="429dp"
-        android:layout_height="894dp"
-        android:background="@color/corDeFundo"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/tituloFacens"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858"
-        tools:context=".SuaAtividade">
+        app:srcCompat="@mipmap/falefacens" />
 
-        <ImageView
-            android:id="@+id/tituloFacens"
-            android:layout_width="327dp"
-            android:layout_height="183dp"
-            android:layout_above="@+id/botaoReport"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="51dp"
-            android:scaleType="center"
-            android:translationX="0dp"
-            android:translationY="400dp"
-            app:srcCompat="@mipmap/falefacens" />
+    <ImageButton
+        android:id="@+id/botaoReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="119dp"
+        android:onClick="BtnTelaReport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloFacens"
+        app:srcCompat="@mipmap/botaogrande" />
 
-        <ImageButton
-            android:id="@+id/botaoReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="130dp"
-            android:layout_marginEnd="130dp"
-            android:onClick="BtnTelaReport"
-            android:padding="0dp"
-            android:paddingStart="0dp"
-            android:paddingLeft="0dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="0dp"
-            android:paddingRight="0dp"
-            android:paddingBottom="0dp"
-            android:translationX="0dp"
-            android:translationY="400dp"
-            app:srcCompat="@mipmap/botaogrande" />
+    <ImageButton
+        android:id="@+id/botaoContato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:onClick="BtnTelaContatos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botaoReport"
+        app:srcCompat="@mipmap/botaogrande" />
 
-        <ImageButton
-            android:id="@+id/botaoContato"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="130dp"
-            android:layout_marginEnd="130dp"
-            android:onClick="BtnTelaContatos"
-            android:padding="0dp"
-            android:paddingStart="0dp"
-            android:paddingLeft="0dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="0dp"
-            android:paddingRight="0dp"
-            android:paddingBottom="0dp"
-            android:translationX="0dp"
-            android:translationY="500dp"
-            app:srcCompat="@mipmap/botaogrande" />
+    <ImageView
+        android:id="@+id/textoReport"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginEnd="31dp"
+        android:onClick="BtnTelaReport"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoReport"
+        app:layout_constraintEnd_toEndOf="@+id/botaoReport"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="@+id/botaoReport"
+        app:layout_constraintTop_toTopOf="@+id/botaoReport"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/textoreport" />
 
-        <ImageView
-            android:id="@+id/textoReport"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            android:layout_alignStart="@+id/botaoReport"
-            android:layout_alignTop="@+id/botaoReport"
-            android:layout_alignEnd="@+id/botaoReport"
-            android:layout_alignBottom="@+id/botaoReport"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="-154dp"
-            android:onClick="BtnTelaReport"
-            android:translationX="15dp"
-            android:translationY="278dp"
-            app:srcCompat="@mipmap/textoreport" />
+    <ImageView
+        android:id="@+id/textoContatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="BtnTelaContatos"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoContato"
+        app:layout_constraintEnd_toEndOf="@+id/botaoContato"
+        app:layout_constraintStart_toStartOf="@+id/botaoContato"
+        app:layout_constraintTop_toTopOf="@+id/botaoContato"
+        app:srcCompat="@mipmap/textocontatos" />
 
-        <ImageView
-            android:id="@+id/textoContatos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/botaoContato"
-            android:layout_alignTop="@+id/botaoContato"
-            android:layout_alignEnd="@+id/botaoContato"
-            android:layout_alignBottom="@+id/botaoContato"
-            android:layout_marginStart="41dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="29dp"
-            android:layout_marginBottom="5dp"
-            android:onClick="BtnTelaContatos"
-            android:translationX="-5dp"
-            android:translationY="500dp"
-            app:srcCompat="@mipmap/textocontatos" />
+    <ImageButton
+        android:id="@+id/botaoSairr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:onClick="BtnSair"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textoDesenvolvimento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/botaosair" />
 
-        <ImageButton
-            android:id="@+id/botaoSairr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textoDesenvolvimento"
-            android:layout_marginBottom="39dp"
-            android:onClick="BtnSair"
-            android:padding="0dp"
-            android:translationX="180dp"
-            android:translationY="825dp"
-            android:visibility="visible"
-            app:srcCompat="@mipmap/botaosair" />
+    <ImageView
+        android:id="@+id/textoDesenvolvimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:translationY="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/textodesenvolvido" />
 
-        <ImageView
-            android:id="@+id/textoDesenvolvimento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="110dp"
-            android:layout_marginEnd="90dp"
-            android:layout_marginBottom="47dp"
-            android:translationY="0dp"
-            app:srcCompat="@mipmap/textodesenvolvido" />
-
-        <ImageView
-            android:id="@+id/textoSair"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/botaoSairr"
-            android:layout_alignEnd="@+id/botaoSairr"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="20dp"
-            android:onClick="BtnSair"
-            android:translationX="179dp"
-            android:translationY="760dp"
-            app:srcCompat="@mipmap/sair" />
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/textoSair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:onClick="BtnSair"
+        app:layout_constraintBottom_toTopOf="@+id/textoDesenvolvimento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/sair" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

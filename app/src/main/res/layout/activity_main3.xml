@@ -134,9 +134,12 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="177dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="#0E0E0E"
+        app:layout_constraintBottom_toBottomOf="@+id/caixaPara"
+        app:layout_constraintEnd_toEndOf="@+id/caixaPara"
         app:layout_constraintStart_toStartOf="@+id/caixaPara"
         app:layout_constraintTop_toTopOf="@+id/caixaPara" />
 

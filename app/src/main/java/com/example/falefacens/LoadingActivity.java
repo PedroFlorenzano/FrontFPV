@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class MainActivity extends AppCompatActivity {
+public class LoadingActivity extends AppCompatActivity {
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ protected void onCreate(Bundle savedInstanceState) {
     new Handler().postDelayed(new Runnable() {
         @Override
         public void run() {
-            Intent mainIntent = new Intent(MainActivity.this, MainActivity2.class);
+            Intent mainIntent = new Intent(LoadingActivity.this, MenuActivity.class);
             startActivity(mainIntent);
             finish(); // Fecha a SplashActivity para que não possa ser retornada ao pressionar o botão Voltar
         }

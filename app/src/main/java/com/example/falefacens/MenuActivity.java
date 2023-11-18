@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,12 +15,12 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public void BtnTelaReport(View view){
-        Intent intent = new Intent(this, MainActivity3.class);
+        Intent intent = new Intent(this, ReportActivity.class);
         startActivity(intent);
     }
 
     public void BtnTelaContatos(View view){
-        Intent intent = new Intent(this, MainActivity4.class);
+        Intent intent = new Intent(this, ContatosActivity.class);
         startActivity(intent);
     }
 

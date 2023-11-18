@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.falefacens.Service.FaleFacensServices;
 import com.example.falefacens.models.Categoria;
@@ -30,34 +27,29 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ReportActivity extends AppCompatActivity {
 
     private Spinner spinner;
-
-    private TextView teste;
     private static final String TAG = "Log";
-
-    String[] arrayNomeCategoria = new String[]{
-          "",  "Secretaria", "Biblioteca", "TI", "Ouvidoria"
-    };
 
     List<Categoria> categorias = new ArrayList<>();
     List<String> nomeCategoria = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_report);
+
 
         spinner = findViewById(R.id.spinner);
-
         chamarContatos();
         Log.d(TAG, categorias.toString());
         PreencheSprinner();
+
     }
 
     private void PreencheSprinner() {
         spinner.setAdapter(new ArrayAdapter<String>(
                 getApplicationContext(),
-                R.layout.textviewspinner,
-                arrayNomeCategoria
-        ));
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                nomeCategoria
+                ));
     }
     private void chamarContatos() {
         Retrofit retrofit = new Retrofit.Builder()

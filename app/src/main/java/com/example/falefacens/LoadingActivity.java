@@ -11,7 +11,7 @@ public class LoadingActivity extends AppCompatActivity {
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main); // Crie um layout para a tela de abertura
+    setContentView(R.layout.activity_loading); // Crie um layout para a tela de abertura
 
     // Handler para aguardar alguns segundos e iniciar a MainActivity
     new Handler().postDelayed(new Runnable() {

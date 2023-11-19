@@ -6,8 +6,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.example.falefacens.Service.FaleFacensServices;
 import com.example.falefacens.models.Categoria;
@@ -27,7 +32,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ReportActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    private EditText nome;
+    private EditText ra;
+    private EditText mensagem;
+    private ImageButton botaoEnviar;
     private static final String TAG = "Log";
+
+    String[] arrayNomeCategoria = new String[]{
+     "", "Secretaria", "Biblioteca", "Suporte TI", "Atendimento"
+    };
 
     List<Categoria> categorias = new ArrayList<>();
     List<String> nomeCategoria = new ArrayList<>();
@@ -36,19 +49,34 @@ public class ReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
 
+        InstanciaAtributos();
 
-        spinner = findViewById(R.id.spinner);
         chamarContatos();
+
         Log.d(TAG, categorias.toString());
         PreencheSprinner();
 
+        botaoEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enviarEmail();
+            }
+        });
+
     }
 
+    private void InstanciaAtributos(){
+        spinner = findViewById(R.id.spinner);
+        nome = findViewById(R.id.textNome);
+        ra = findViewById(R.id.editTextRA);
+        mensagem = findViewById(R.id.TextMensagem);
+        botaoEnviar = findViewById(R.id.botaoEnviar);
+    }
     private void PreencheSprinner() {
         spinner.setAdapter(new ArrayAdapter<String>(
                 getApplicationContext(),
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-                nomeCategoria
+                arrayNomeCategoria
                 ));
     }
     private void chamarContatos() {
@@ -80,12 +108,59 @@ public class ReportActivity extends AppCompatActivity {
         });
         Log.d(TAG, categorias.toString());
     }
-    private void enviarEmail(String titulo, String texto){
+    private void enviarEmail(){
+        String email = null;
+
+        switch(RecuperaParaTela()) {
+            case "Secretaria":
+                email = "atendimento@facens.br";
+                break;
+            case "Biblioteca":
+                email = "biblioteca@facens.br";
+                break;
+            case "Suporte TI":
+                email = "suporte.ti@facens.br";
+                break;
+            case "Atendimento":
+                email = "facens@facens.br";
+                break;
+            default:
+                email = "";
+        };
+
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"pedrohp36@gmail.com"});
-        intent.putExtra(Intent.EXTRA_SUBJECT, titulo);
-        intent.putExtra(Intent.EXTRA_TEXT, texto);
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "REPORT - FALA FACENS");
+        intent.putExtra(Intent.EXTRA_TEXT, MontaTextoEmail());
         startActivity(intent);
     }
+    private String MontaTextoEmail(){
+        String nome = RecuperaNomeTela();
+        String ra = RecuperaRaTela();
+        String mensagem = RecuperaMensagemTela();
+
+        String textoEmail = nome + "\n" +
+                            ra + "\n"+
+                            mensagem;
+
+        return textoEmail;
+    }
+    private String RecuperaParaTela(){
+        String Para = spinner.getSelectedItem().toString();
+        return Para;
+    }
+    private String RecuperaNomeTela(){
+        String NomeTela = nome.getText().toString();
+        return NomeTela;
+    }
+    private String RecuperaRaTela(){
+        String RaTela = ra.getText().toString();
+        return RaTela;
+    }
+    private String RecuperaMensagemTela(){
+        String MensagemTela = mensagem.getText().toString();
+        return MensagemTela;
+    }
+
 }
